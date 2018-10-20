@@ -1,0 +1,6 @@
+Problematicas Encontradas:
+
+4-en-Linea.
+* Generación del tablero => Clase tablero
+* IA => NegaMax
+* Duplicación del Tablero => ?
