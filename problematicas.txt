@@ -1,6 +1,9 @@
-Problematicas Encontradas:
+﻿Problematicas Encontradas:
 
 4-en-Linea.
 * Generación del tablero => Clase tablero
 * IA => NegaMax
+	* No termina nunca la busqueda
+	Sol: Aplicar una heuristica para determinar la "mejor" jugada
 * Duplicación del Tablero => ?
+	Sol: Duplicar cada Array de las Filas

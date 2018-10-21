@@ -6,6 +6,7 @@ class Board{
 
     private var filled:Int
     private var tablero:Array<Array<Int>>
+    private var lastMove = -1
 
     constructor(){
         width = 7
@@ -70,6 +71,7 @@ class Board{
             tablero[height-1][column] = player
         }
 
+        lastMove = column
         filled++
         return true
     }
@@ -166,6 +168,7 @@ class Board{
         return 0
     }
 
+    //Funciones utilitarias
     fun isFull():Boolean{
         return filled >= (width * height)
     }
@@ -178,13 +181,21 @@ class Board{
         return height
     }
 
+    fun pos(x:Int, y:Int):Int{
+        if (x < 0 || x > height || y < 0 || y > width)
+            throw Exception()
+
+        return tablero[x][y]
+    }
+
+    fun lastMove():Int{
+        return lastMove
+    }
+
+    //Función para clonar el tablero, necesario para negamax
     fun clone():Board{
         var newTablero = ArrayList<Array<Int>>()
         for (i in 0 until height){
-            /*var ar = Array(width){-1}
-            for (j in 0 until width){
-                ar[j] = tablero[i][j]
-            }*/
             var ar = tablero[i].clone()
             newTablero.add(ar)
         }

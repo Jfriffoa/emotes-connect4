@@ -4,6 +4,7 @@ fun main(args:Array<String>){
     var b = Board()
     val ia = IA()
 
+    //Gameloop
     var winner = 0
     while (winner == 0){
         b.print()
@@ -16,17 +17,19 @@ fun main(args:Array<String>){
 
         }
 
+        //Juega el usuario
         if (!b.makePlay(1, pos - 1)){
             println("¡¡MOVEMENT UNALLOWED!!")
         }
 
         winner = b.checkWinner()
-        //println()
 
+        //Si hay empate, usar valor arbitrario
         if (b.isFull() && winner == 0){
             winner = -5
         }
 
+        //Si no hay ganador, juega la CPU
         if (winner == 0){
             println("Turno de la CPU...")
             ia.makeMove(b)
@@ -43,5 +46,5 @@ fun main(args:Array<String>){
     if (winner == -5)
         println("¡¡ES UN EMPATE!!")
     else
-        println("FELICIDADES, " + ( if (winner == 1) "x" else "o") + " ES EL GANADOR")
+        println("FELICIDADES, " + ( if (winner == 1) "X" else "Oit") + " ES EL GANADOR")
 }
